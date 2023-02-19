@@ -2,7 +2,7 @@
 # (-|  \(-|  \
 #  _|__/ _|__/
 # Devin Dwight's bash config...
-# ...its a combination of quite a few different things while also being minimal...
+# ...its a combination of bits of pieces of others' configs, including the kali prompt.
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
