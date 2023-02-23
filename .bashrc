@@ -4,9 +4,8 @@
 # Devin Dwight's bash config...
 # ...its a combination of bits of pieces of others' configs, including the kali prompt.
 
-# If not running interactively, don't do anything
+# if not running interactively, don't do anything
 [[ $- != *i* ]] && return
-
 
 ####  EXPORTS  ####
 export TERM="xterm-256color"
@@ -17,31 +16,54 @@ export PATH="/usr/bin/env/:$PATH"			# for zenmap...and prolly others...
 export MANPAGER=less 						# default (changed it before & messed it up)
 
 
-####  ALIASES  ####
-alias ls='ls -lhGF --color=auto'
-# confirm before overwriting something
-alias rm='trash -iv'
-alias cp="cp -iv"
-alias mv='mv -iv'
-
-# custom aliases
-alias cls='clear'
-alias apt='nala'
-alias nano='micro'
-alias obsd='obsidian'
-alias python='python3'
-
-# ignore upper and lowercase when TAB completion...
-bind "set completion-ignore-case on"
-
-
 #### HISTORY MGMT ####
+
 export HISTTIMEFORMAT="%y%m%d_%T - "
 export HISTCONTROL=ignoredups:erasedups		# no duplicate entries
 shopt -s histappend  # do not overwrite history
 HISTSIZE=100000
 HISTFILESIZE=10000000
 
+
+
+####  ALIASES  ####
+
+alias ls='ls -lhGF --color=auto'
+alias ld='LC_COLLATE=C ls -alF'
+alias cls='clear'
+# interactive files:
+alias rm='trash -iv'
+alias cp="cp -iv"
+alias mv='mv -iv'
+
+# application aliases
+alias obsd='obsidian'
+alias python='python3'
+alias rr='ranger'
+
+# Micro
+alias install-micro='curl https://getmic.ro | bash && sudo mv micro /opt'
+alias nano='micro'
+
+# Nala - "apt" overlay
+alias get-nala-repo='echo "deb http://deb.volian.org/volian/ scar main" | sudo tee /etc/apt/sources.list.d/volian-archive-scar-unstable.list; wget -qO - https://deb.volian.org/volian/scar.key | sudo tee /etc/apt/trusted.gpg.d/volian-archive-scar-unstable.gpg'
+alias install-nala='sudo nala install nala'
+apt() { 
+  command nala "$@"
+}
+sudo() {
+  if [ "$1" = "apt" ]; then
+    shift
+    command sudo nala "$@"
+  else
+    command sudo "$@"
+  fi
+}
+
+
+
+# ignore upper and lowercase when TAB completion...
+bind "set completion-ignore-case on"
 
 ####  SHOPT  ####
 shopt -s autocd # change to named directory
@@ -51,7 +73,6 @@ shopt -s dotglob
 shopt -s histappend # do not overwrite history
 shopt -s expand_aliases # expand aliases
 shopt -s checkwinsize # checks term size when bash regains control
-
 
 
 #### PROMPT HANDLING ####
