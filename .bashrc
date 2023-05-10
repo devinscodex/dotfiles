@@ -9,7 +9,6 @@
 
 ####  EXPORTS  ####
 export TERM="xterm-256color"
-export PATH="/home/picard/scripts/:$PATH"
 export PATH="/opt/:$PATH"
 export PATH="/opt/scripts/:$PATH"			# this is where I keep personal scripts at
 export PATH="/usr/bin/env/:$PATH"			# for zenmap...and prolly others...
