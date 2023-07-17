@@ -2,7 +2,8 @@
 # (-|  \(-|  \
 #  _|__/ _|__/
 # Devin Dwight's bash config...
-# ...its a combination of bits of pieces of others' configs, including the kali prompt.
+# ...a combination of bits of pieces of others' configs, including the kali prompt.
+# modified: 23-07-17
 
 # if not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -12,11 +13,11 @@ export TERM="xterm-256color"
 export PATH="/opt/:$PATH"
 export PATH="/opt/scripts/:$PATH"			# this is where I keep personal scripts at
 export PATH="/usr/bin/env/:$PATH"			# for zenmap...and prolly others...
+export PATH="~/.nix-profile/bin/:$PATH"     # nix packages
 export MANPAGER=less 						# default (changed it before & messed it up)
 
 
 #### HISTORY MGMT ####
-
 export HISTTIMEFORMAT="%y%m%d_%T - "
 export HISTCONTROL=ignoredups:erasedups		# no duplicate entries
 shopt -s histappend  # do not overwrite history
@@ -24,40 +25,38 @@ HISTSIZE=100000
 HISTFILESIZE=10000000
 
 
-
 ####  ALIASES  ####
-
 alias ls='ls -lhGF --color=auto'
 alias ld='LC_COLLATE=C ls -alF'
 alias cls='clear'
-# interactive files:
-alias rm='trash -iv'
+#... interactive files ...
+#alias rm='trash -iv'
 alias cp="cp -iv"
 alias mv='mv -iv'
 
-# application aliases
-alias obsd='obsidian'
-alias python='python3'
-alias rr='ranger'
+#... application aliases ...
+#alias obsd='obsidian'
+#alias python='python3'
+#alias rr='ranger'
 
 # Micro
-alias install-micro='curl https://getmic.ro | bash && sudo mv micro /opt'
-alias nano='micro'
+#alias nano='micro'
+#alias install-micro='curl https://getmic.ro | bash && sudo mv micro /opt'
 
 # Nala - "apt" overlay
 alias get-nala-repo='echo "deb http://deb.volian.org/volian/ scar main" | sudo tee /etc/apt/sources.list.d/volian-archive-scar-unstable.list; wget -qO - https://deb.volian.org/volian/scar.key | sudo tee /etc/apt/trusted.gpg.d/volian-archive-scar-unstable.gpg'
 alias install-nala='sudo nala install nala'
-apt() { 
-  command nala "$@"
-}
-sudo() {
-  if [ "$1" = "apt" ]; then
-    shift
-    command sudo nala "$@"
-  else
-    command sudo "$@"
-  fi
-}
+#apt() { 
+#  command nala "$@"
+#}
+#sudo() {
+#  if [ "$1" = "apt" ]; then
+#    shift
+#    command sudo nala "$@"
+#  else
+#    command sudo "$@"
+#  fi
+#}
 
 
 
