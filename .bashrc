@@ -3,7 +3,7 @@
 #  _|__/ _|__/
 # Devin Dwight's bash config...
 # ...a combination of bits of pieces of others' configs, including the kali prompt.
-# modified: 23-07-17
+# modified: 23-07-18
 
 # if not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -45,7 +45,7 @@ alias mv='mv -iv'
 
 # Nala - "apt" overlay
 alias get-nala-repo='echo "deb http://deb.volian.org/volian/ scar main" | sudo tee /etc/apt/sources.list.d/volian-archive-scar-unstable.list; wget -qO - https://deb.volian.org/volian/scar.key | sudo tee /etc/apt/trusted.gpg.d/volian-archive-scar-unstable.gpg'
-alias install-nala='sudo nala install nala'
+alias install-nala='apt install nala'
 #apt() { 
 #  command nala "$@"
 #}
