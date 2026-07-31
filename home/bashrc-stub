@@ -1,0 +1,4 @@
+# XDG stub -- real bashrc lives at $XDG_CONFIG_HOME/bash/bashrc (dotfiles repo).
+# This file exists only because bash itself doesn't know about XDG paths.
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+[ -f "$XDG_CONFIG_HOME/bash/bashrc" ] && source "$XDG_CONFIG_HOME/bash/bashrc"
