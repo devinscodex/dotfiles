@@ -16,8 +16,15 @@ black   = '#030302'
 red     = '#a35648'
 green   = '#b4e4bc'
 yellow  = '#a39348'
-blue    = '#4869a3'
-magenta = '#9d8cf0'
+blue    = '#9d8cf0'  # external_link's real violet, moved here
+magenta = '#b4e4bc'  # was #9d8cf0 (external_link violet) -- tmux's
+                     # window-status-current uses colour5 as the ACTIVE
+                     # tab bg; Devin asked for "more minty green and dark
+                     # manga contrast" there specifically, so the real
+                     # mint accent now drives it (near-black text glowing
+                     # on bright mint = the manga "one accent, rest
+                     # black-and-white linework" look), violet kept alive
+                     # in the blue slot above instead of dropped outright.
 cyan    = '#48a394'
 white   = '#7d7d78'
 
@@ -33,7 +40,7 @@ black   = '#1c211a'  # was #07080a (only 4-8/255 lighter than bg #030302 --
 red     = '#c27968'
 green   = '#c8ecce'
 yellow  = '#c2b168'
-blue    = '#6889c2'
-magenta = '#b3a5f4'
+blue    = '#b3a5f4'
+magenta = '#c8ecce'
 cyan    = '#68c2b1'
 white   = '#e8e6e0'
