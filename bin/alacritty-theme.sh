@@ -18,9 +18,19 @@
 set -euo pipefail
 ALACRITTY_TOML="/mnt/c/Users/devin/AppData/Roaming/alacritty/alacritty.toml"
 
+# Simplified 2026-07-31 (Devin: "that's what the script should do", after
+# the literal-hex-per-theme approach caused a whole confusing session of
+# syncing/reattach issues) -- plain 'colour0' for every theme, always.
+# Real accepted tradeoff: a theme whose colour0 isn't its real identity
+# color (e.g. ubuntu.toml -- colour0 is plain charcoal #2e3436, not its
+# real maroon background #300a24) shows that plain color instead of its
+# true brand color. Worth it: this never needs re-syncing, never needs a
+# tmux reattach, and never goes stale. If real per-theme identity colors
+# are wanted again later, that's a deliberate, separate ask -- don't
+# quietly reintroduce literal hex here without it.
 declare -A ACTIVE_BG=(
-    [osaka]='colour0'      # solarized_osaka: colour0 IS its real black (#073642), a genuine dark teal
-    [ubuntu]='#300a24'     # ubuntu: colour0 is unrelated charcoal (#2e3436) -- literal hex needed
+    [osaka]='colour0'
+    [ubuntu]='colour0'
 )
 declare -A IMPORT_LINE=(
     [osaka]='themes/solarized_osaka.toml'
