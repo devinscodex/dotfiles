@@ -104,7 +104,26 @@ with open(path, "w", encoding="utf-8") as f:
     f.writelines(out)
 PYEOF
 
-tmux set -g @window_active_bg "$ACTIVE_BG"
-tmux set -g @pane_active_bg "$ACTIVE_BG"
+# Real fix, 2026-07-31: set -g alone (server-wide default) turned out
+# not to be enough -- a brand-new session picked it up fine, but an
+# EXISTING session (cairn) kept rendering stale even after detach/
+# reattach and a full Alacritty restart. Setting it explicitly on
+# EVERY currently-running session (not just the global default) covers
+# any session that might have its own resolved state, and forcing a
+# full client redraw (refresh-client -S) covers any case where a style
+# change alone doesn't repaint an already-drawn screen. Devin's ask:
+# "can the script just handle all of it" -- this is that, no more
+# manual detach/reattach/restart dance required.
+if command -v tmux >/dev/null 2>&1 && tmux list-sessions >/dev/null 2>&1; then
+    tmux set -g @window_active_bg "$ACTIVE_BG"
+    tmux set -g @pane_active_bg "$ACTIVE_BG"
+    while IFS= read -r sess; do
+        tmux set -t "$sess" @window_active_bg "$ACTIVE_BG" 2>/dev/null || true
+        tmux set -t "$sess" @pane_active_bg "$ACTIVE_BG" 2>/dev/null || true
+    done < <(tmux list-sessions -F '#{session_name}')
+    while IFS= read -r client; do
+        tmux refresh-client -S -t "$client" 2>/dev/null || true
+    done < <(tmux list-clients -F '#{client_name}')
+fi
 
 echo "Switched to $NAME (active-tab bg: $ACTIVE_BG): alacritty.toml import + tmux both updated."
