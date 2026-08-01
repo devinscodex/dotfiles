@@ -1,56 +1,77 @@
 #!/usr/bin/env bash
 # Dynamic Alacritty-theme + tmux-active-tab-bg switch -- one command
-# instead of two manual edits. Real limitation this works around: tmux
-# has no way to query which Alacritty theme is currently loaded (no
-# API for that), so nothing can auto-detect this on its own -- running
-# this script IS the sync point, by design, not a workaround for a bug.
+# instead of manually editing alacritty.toml's import line and
+# separately re-running a matching `tmux set -g`. Real limitation this
+# works around: tmux has no way to query which Alacritty theme is
+# currently loaded (no API for that), so nothing can auto-detect this
+# on its own -- running this script IS the sync point, by design.
 #
-# Add a new theme: add a case entry below with its REAL active-bg
-# identity color -- read Alacritty's [colors.primary].background from
-# the actual theme file (~/AppData/Roaming/alacritty/themes/<name>.toml
-# on Windows), never guess it. colour0 ([colors.normal].black) is a
-# DIFFERENT value that often has no relationship to the real
-# background at all -- see core/lessons/gotchas.md (cairn project,
-# 2026-07-31) for why that distinction matters here.
+# 2026-07-31: pulls each theme's real [colors.primary].background
+# straight from its own .toml file (via Python's tomllib) instead of a
+# hand-maintained lookup table -- works for ANY theme in the themes/
+# folder automatically, not just ones someone remembered to add an
+# entry for. See core/lessons/gotchas.md (cairn project, 2026-07-31)
+# for why primary.background (not colour0) is the real identity color.
 #
-# Usage: alacritty-theme.sh <name>     switch to <name>
-#        alacritty-theme.sh            show current + list known names
+# Usage: alacritty-theme.sh <name>     switch to <name> (partial match
+#                                      OK, e.g. "osaka" matches
+#                                      solarized_osaka.toml)
+#        alacritty-theme.sh            show current theme
 set -euo pipefail
 ALACRITTY_TOML="/mnt/c/Users/devin/AppData/Roaming/alacritty/alacritty.toml"
+THEMES_DIR="/mnt/c/Users/devin/AppData/Roaming/alacritty/themes"
 
-# Simplified 2026-07-31 (Devin: "that's what the script should do", after
-# the literal-hex-per-theme approach caused a whole confusing session of
-# syncing/reattach issues) -- plain 'colour0' for every theme, always.
-# Real accepted tradeoff: a theme whose colour0 isn't its real identity
-# color (e.g. ubuntu.toml -- colour0 is plain charcoal #2e3436, not its
-# real maroon background #300a24) shows that plain color instead of its
-# true brand color. Worth it: this never needs re-syncing, never needs a
-# tmux reattach, and never goes stale. If real per-theme identity colors
-# are wanted again later, that's a deliberate, separate ask -- don't
-# quietly reintroduce literal hex here without it.
-declare -A ACTIVE_BG=(
-    [osaka]='colour0'
-    [ubuntu]='colour0'
-)
-declare -A IMPORT_LINE=(
-    [osaka]='themes/solarized_osaka.toml'
-    [ubuntu]='themes/ubuntu.toml'
-)
+current_theme() {
+    grep -oP '^\s*"themes/\K[^"]+(?=\.toml")' "$ALACRITTY_TOML" | head -1
+}
 
 if [ $# -eq 0 ]; then
-    current=$(grep -oP '^\s*"themes/\K[^"]+(?=\.toml")' "$ALACRITTY_TOML" | head -1)
-    echo "Current alacritty.toml import: themes/${current}.toml"
-    echo "Known names: ${!ACTIVE_BG[*]}"
+    echo "Current alacritty.toml import: themes/$(current_theme).toml"
     exit 0
 fi
 
-NAME="$1"
-if [ -z "${ACTIVE_BG[$NAME]:-}" ]; then
-    echo "Unknown theme: $NAME (known: ${!ACTIVE_BG[*]})" >&2
-    exit 1
+QUERY="$1"
+QUERY="${QUERY%.toml}"
+QUERY="${QUERY#themes/}"
+
+# Exact match first, then substring (case-insensitive) so "osaka"
+# reaches solarized_osaka.toml without needing the full name.
+MATCHES=()
+if [ -f "$THEMES_DIR/$QUERY.toml" ]; then
+    MATCHES=("$QUERY")
+else
+    while IFS= read -r -d '' f; do
+        base="$(basename "$f" .toml)"
+        MATCHES+=("$base")
+    done < <(find "$THEMES_DIR" -maxdepth 1 -iname "*${QUERY}*.toml" -print0)
 fi
 
-python3 - "$ALACRITTY_TOML" "${IMPORT_LINE[$NAME]}" <<'PYEOF'
+if [ "${#MATCHES[@]}" -eq 0 ]; then
+    echo "No theme matching '$QUERY' found in $THEMES_DIR" >&2
+    exit 1
+elif [ "${#MATCHES[@]}" -gt 1 ]; then
+    echo "Ambiguous -- '$QUERY' matches multiple themes, be more specific:" >&2
+    printf '  %s\n' "${MATCHES[@]}" >&2
+    exit 1
+fi
+NAME="${MATCHES[0]}"
+
+# Real identity color: [colors.primary].background from the theme's own
+# file. Falls back to 'colour0' (always safe, never wrong, just maybe
+# not that theme's true brand color) if the theme doesn't define one --
+# some minimal theme files don't set colors.primary explicitly.
+ACTIVE_BG=$(python3 - "$THEMES_DIR/$NAME.toml" <<'PYEOF'
+import sys
+import tomllib
+
+with open(sys.argv[1], "rb") as f:
+    data = tomllib.load(f)
+bg = data.get("colors", {}).get("primary", {}).get("background")
+print(bg if bg else "colour0")
+PYEOF
+)
+
+python3 - "$ALACRITTY_TOML" "themes/$NAME.toml" <<'PYEOF'
 import re
 import sys
 
@@ -83,7 +104,7 @@ with open(path, "w", encoding="utf-8") as f:
     f.writelines(out)
 PYEOF
 
-tmux set -g @window_active_bg "${ACTIVE_BG[$NAME]}"
-tmux set -g @pane_active_bg "${ACTIVE_BG[$NAME]}"
+tmux set -g @window_active_bg "$ACTIVE_BG"
+tmux set -g @pane_active_bg "$ACTIVE_BG"
 
-echo "Switched to $NAME: alacritty.toml import + tmux active-tab bg both updated (live_config_reload picks up the Alacritty side instantly)."
+echo "Switched to $NAME (active-tab bg: $ACTIVE_BG): alacritty.toml import + tmux both updated."
