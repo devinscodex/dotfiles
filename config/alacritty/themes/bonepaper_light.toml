@@ -17,7 +17,15 @@ black   = '#b8a785'
 red     = '#8b5843'
 green   = '#33762d'
 yellow  = '#8b7643'
-blue    = '#43648b'
+blue    = '#a3c6e8'  # was #43648b -- real root cause of the folder-
+                     # contrast complaint (not colour0/colour8/colour6,
+                     # all already fixed): WSL's dircolors renders
+                     # other-writable dirs (mode drwxrwxrwx, every
+                     # /mnt/c folder) as `ow=34;42` = normal.blue text
+                     # ON normal.green bg. #43648b-on-#33762d was two
+                     # similarly-dark mid-tones, unreadable. Lightened
+                     # to a pale sky-blue for real contrast against the
+                     # dark-green fill.
 magenta = '#5b3fa6'
 cyan    = '#43856b'
 white   = '#4e4434'
