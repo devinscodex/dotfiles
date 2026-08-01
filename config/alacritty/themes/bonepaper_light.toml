@@ -23,7 +23,11 @@ cyan    = '#43856b'
 white   = '#4e4434'
 
 [colors.bright]
-black   = '#aa9776'
+black   = '#8a7a5c'  # was #aa9776 (only 14-16/255 darker than bg #b8a785 -- real
+                     # bug, this is tmux's inactive-tab-bg AND the inactive-pane
+                     # cwd-label bg, colour0-on-colour8 pairing read as muddy/
+                     # near-invisible). Widened the gap to a real, clearly
+                     # distinct step while staying in the same warm-tan family.
 red     = '#a5715c'
 green   = '#4e8a45'
 yellow  = '#a5905c'

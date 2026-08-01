@@ -22,7 +22,14 @@ cyan    = '#48a394'
 white   = '#7d7d78'
 
 [colors.bright]
-black   = '#07080a'
+black   = '#1c211a'  # was #07080a (only 4-8/255 lighter than bg #030302 --
+                     # same real bug as bonepaper_light's colour8: tmux's
+                     # inactive-tab-bg barely differed from the base
+                     # background, active/inactive read as not distinct
+                     # enough. Reused Runestone's own bonepaper.css
+                     # --color-base-30 (#1c211a), a real already-established
+                     # "next visible step" tone from this theme's own ramp,
+                     # not a new invented value.
 red     = '#c27968'
 green   = '#c8ecce'
 yellow  = '#c2b168'
