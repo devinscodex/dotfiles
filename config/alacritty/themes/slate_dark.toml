@@ -1,0 +1,31 @@
+# Slate Dark -- real values from themes-custom/palettes/slate.json
+# ("Solarized dark basically, desaturated," house moss accent replacing
+# Solarized's original blue). Derived-fill convention as slate_light.toml.
+
+[colors.primary]
+background = '#001a1d'
+foreground = '#839496'
+
+[colors.cursor]
+text = '#001a1d'
+cursor = '#699d43'
+
+[colors.normal]
+black   = '#001a1d'
+red     = '#a35a4a'
+green   = '#699d43'
+yellow  = '#a3924a'
+blue    = '#4a72a3'
+magenta = '#7a4aa3'
+cyan    = '#4aa39a'
+white   = '#657b83'
+
+[colors.bright]
+black   = '#073642'
+red     = '#c27a6a'
+green   = '#699d43'
+yellow  = '#c2b26a'
+blue    = '#6a92c2'
+magenta = '#9a6ac2'
+cyan    = '#6ac2b9'
+white   = '#839496'

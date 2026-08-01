@@ -1,0 +1,35 @@
+# Martin (MEG brand) Light -- real values from themes-custom/palettes/
+# martin.json, sourced from martinenergygroup.com's live Elementor
+# global palette (presentation/meg-theme.css). green/highlight are the
+# theme's own two real MEG greens (primary #62a945, secondary #4a7637);
+# red/yellow/blue/cyan below are derived fill (interpolated toward fg
+# from bg), not verified brand colors -- this UI palette only defines
+# bg/fg/button/accent, not a full 16-slot terminal scheme.
+
+[colors.primary]
+background = '#ffffff'
+foreground = '#1b2224'
+
+[colors.cursor]
+text = '#ffffff'
+cursor = '#62a945'
+
+[colors.normal]
+black   = '#ffffff'
+red     = '#a6453a'
+green   = '#62a945'
+yellow  = '#a68a3a'
+blue    = '#3a6ea6'
+magenta = '#4a7637'
+cyan    = '#3aa696'
+white   = '#535353'
+
+[colors.bright]
+black   = '#f9f9f9'
+red     = '#c25a4d'
+green   = '#4a7637'
+yellow  = '#c2a04d'
+blue    = '#4d84c2'
+magenta = '#5a8a44'
+cyan    = '#4dc2ae'
+white   = '#1b2224'

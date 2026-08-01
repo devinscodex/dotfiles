@@ -1,0 +1,31 @@
+# Flexoki Dark -- real values from themes-custom/palettes/flexoki.json
+# (Steph Ango's published Flexoki, blue-400 accent). Derived-fill
+# convention as flexoki_light.toml.
+
+[colors.primary]
+background = '#1c1b1a'
+foreground = '#e6e4d9'
+
+[colors.cursor]
+text = '#1c1b1a'
+cursor = '#4385be'
+
+[colors.normal]
+black   = '#1c1b1a'
+red     = '#a35b4a'
+green   = '#6ba34a'
+yellow  = '#a3924a'
+blue    = '#4385be'
+magenta = '#8a4aa3'
+cyan    = '#4a9aa3'
+white   = '#6f6e69'
+
+[colors.bright]
+black   = '#282726'
+red     = '#c27a68'
+green   = '#8ac268'
+yellow  = '#c2b168'
+blue    = '#68a3d8'
+magenta = '#a968c2'
+cyan    = '#68b9c2'
+white   = '#e6e4d9'

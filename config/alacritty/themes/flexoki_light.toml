@@ -1,0 +1,32 @@
+# Flexoki Light -- real values from themes-custom/palettes/flexoki.json
+# (Steph Ango's published Flexoki, stephango.com/flexoki -- this app's
+# own real blue accent, not the shared house green). red/yellow/magenta/
+# cyan below are derived fill. See Donatello's color-sync notes.
+
+[colors.primary]
+background = '#fffcf0'
+foreground = '#100f0f'
+
+[colors.cursor]
+text = '#fffcf0'
+cursor = '#205ea6'
+
+[colors.normal]
+black   = '#fffcf0'
+red     = '#8b5343'
+green   = '#5e8b43'
+yellow  = '#8b7943'
+blue    = '#205ea6'
+magenta = '#75438b'
+cyan    = '#43848b'
+white   = '#b7b5ac'
+
+[colors.bright]
+black   = '#f2f0e5'
+red     = '#a5715c'
+green   = '#78a55c'
+yellow  = '#a5935c'
+blue    = '#4385be'
+magenta = '#935cae'
+cyan    = '#5ca3ae'
+white   = '#100f0f'

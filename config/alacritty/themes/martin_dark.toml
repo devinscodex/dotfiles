@@ -1,0 +1,31 @@
+# Martin (MEG brand) Dark -- real values from themes-custom/palettes/
+# martin.json (martinenergygroup.com live palette). Same derived-fill
+# convention as martin_light.toml -- see that file's header.
+
+[colors.primary]
+background = '#1b2224'
+foreground = '#cfcfcb'
+
+[colors.cursor]
+text = '#1b2224'
+cursor = '#62a945'
+
+[colors.normal]
+black   = '#1b2224'
+red     = '#a6635a'
+green   = '#62a945'
+yellow  = '#a69b5a'
+blue    = '#5a86a6'
+magenta = '#4a7637'
+cyan    = '#5aa69b'
+white   = '#7e8180'
+
+[colors.bright]
+black   = '#24272a'
+red     = '#c28075'
+green   = '#4a7637'
+yellow  = '#c2b675'
+blue    = '#75a1c2'
+magenta = '#5e9247'
+cyan    = '#75c2b6'
+white   = '#cfcfcb'

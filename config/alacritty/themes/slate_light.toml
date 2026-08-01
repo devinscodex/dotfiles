@@ -1,0 +1,33 @@
+# Slate Light -- real values from themes-custom/palettes/slate.json
+# (the app's own house "stone" look). red/yellow/blue/cyan below are
+# derived fill (interpolated toward fg from bg), not verified brand
+# colors -- see Donatello's color-sync notes (personal/agents/
+# donatello.md) for the convention.
+
+[colors.primary]
+background = '#d0cbbf'
+foreground = '#13120f'
+
+[colors.cursor]
+text = '#d0cbbf'
+cursor = '#33762d'
+
+[colors.normal]
+black   = '#d0cbbf'
+red     = '#7a4a3a'
+green   = '#33762d'
+yellow  = '#7a6a3a'
+blue    = '#3a5a7a'
+magenta = '#5a3a7a'
+cyan    = '#3a7a72'
+white   = '#322f28'
+
+[colors.bright]
+black   = '#c1bcad'
+green   = '#33762d'
+red     = '#946355'
+yellow  = '#948355'
+blue    = '#557394'
+magenta = '#755594'
+cyan    = '#559489'
+white   = '#13120f'

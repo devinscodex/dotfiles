@@ -1,0 +1,32 @@
+# Bonepaper Dark -- real values from themes-custom/palettes/
+# bonepaper.json (night-rain, real numpy-sampled sage-mint glow).
+# external_link's real violet (#9d8cf0) goes in magenta. red/yellow/cyan
+# below are derived fill. See Donatello's color-sync notes.
+
+[colors.primary]
+background = '#030302'
+foreground = '#e8e6e0'
+
+[colors.cursor]
+text = '#030302'
+cursor = '#b4e4bc'
+
+[colors.normal]
+black   = '#030302'
+red     = '#a35648'
+green   = '#b4e4bc'
+yellow  = '#a39348'
+blue    = '#4869a3'
+magenta = '#9d8cf0'
+cyan    = '#48a394'
+white   = '#7d7d78'
+
+[colors.bright]
+black   = '#07080a'
+red     = '#c27968'
+green   = '#c8ecce'
+yellow  = '#c2b168'
+blue    = '#6889c2'
+magenta = '#b3a5f4'
+cyan    = '#68c2b1'
+white   = '#e8e6e0'

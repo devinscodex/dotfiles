@@ -1,0 +1,33 @@
+# Cyber Punk Neon
+# Source https//github.com/Roboron3042/Cyberpunk-Neon
+
+# Default colors
+[colors.primary]
+background = '#000b1e'
+foreground = '#0abdc6'
+
+[colors.cursor]
+text   = '#000b1e'
+cursor = '#0abdc6'
+
+# Normal colors
+[colors.normal]
+black   = '#000b1e'  # was #123e7c (a bright saturated blue, nowhere near black) -- matched to primary.background so colour0 is genuinely dark
+red     = '#ff0000'
+green   = '#d300c4'
+yellow  = '#f57800'
+blue    = '#123e7c'
+magenta = '#711c91'
+cyan    = '#0abdc6'
+white   = '#d7d7d5'
+
+# Bright colors
+[colors.bright]
+black   = '#1b3a5c'  # was #1c61c2 (vivid bright blue, way too bright for a "bright black" slot, made tmux inactive tabs read wrong) -- darkened to a muted navy in the same hue family
+red     = '#ff0000'
+green   = '#d300c4'
+yellow  = '#f57800'
+blue    = '#00ff00'
+magenta = '#711c91'
+cyan    = '#0abdc6'
+white   = '#d7d7d5'

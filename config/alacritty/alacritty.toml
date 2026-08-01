@@ -1,0 +1,84 @@
+# Alacritty Terminal Config
+# Windows path: %appdata%/alacritty/alacritty.toml
+# by: devin dwight 24-11-11
+
+# Alacritty config (https://alacritty.org/config-alacritty.html)
+# Alacritty themes (https://github.com/alacritty/alacritty-theme)
+# TOML homepage (https://toml.io/en/v1.0.0) 
+
+###########
+# GENERAL #
+###########
+[general]
+import = [
+	# DEVS THEMES
+	#"themes/selenized_light.toml"	# BEST LIGHT
+	"themes/azu.toml"
+	#"themes/solarized_osaka.toml"	# fav
+	#"themes/palenight.toml"		# dark
+	#"themes/seashells.toml"		# light blue/tan
+	#"themes/gnome_terminal.toml"	# NICE!
+	#"themes/dracula.toml"			# classic
+	#"themes/cyber_punk_neon.toml"	# colored ↓
+	#"themes/bluish.toml"			# best blue
+	#"themes/inferno.toml" 			# red
+	#"themes/rose_pine.toml"		# purple
+	#"themes/ubuntu.toml" 			# improve...
+]
+
+# working_directory = "C:/Users/devin/"  # Default: "None"
+working_directory = "C:/bin/"  # Default: "None"
+
+# for powershell 7 (run "alacritty migrate" first)
+[terminal.shell]
+program = "C:\\Program Files\\PowerShell\\7\\pwsh.exe"
+args = ["-NoLogo"]
+
+
+##########
+# WINDOW #
+##########
+[window]
+
+# Opacity
+opacity = 0.95  # Default: 1.0
+
+# Padding
+padding = { x = 10, y = 10 }  # Default: x = 0, y = 0
+
+# Window title
+title = "Alacritty - Terminal"  # Default: "Alacritty"
+
+# Dynamic title
+dynamic_title = false  # Default: true
+
+
+#############
+# SCROLLING #
+#############
+[scrolling]
+
+# Maximum number of lines in the scrollback buffer
+history = 100000  # Default: 10000
+
+
+##########
+# CURSOR #
+##########
+[cursor]
+
+# Cursor style
+style = { shape = "Block", blinking = "On" }  # Default: shape = "Block", blinking = "Off"
+
+# Cursor blinking interval in milliseconds
+blink_interval = 420  # Default: 750
+
+# Time after which cursor stops blinking, in seconds
+blink_timeout = 0  # Default: 5
+
+[[keyboard.bindings]]
+key = "Return"
+mods = "Shift"
+chars = "\u001B\r"
+
+
