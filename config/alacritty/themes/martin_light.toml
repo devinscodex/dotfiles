@@ -7,29 +7,44 @@
 # bg/fg/button/accent, not a full 16-slot terminal scheme.
 
 [colors.primary]
-background = '#ffffff'
+background = '#f7f6f2'  # was pure #ffffff -- Devin: "soften the whites a
+                        # bit, not too much, just easier on the eyes."
+                        # Subtle warm off-white, same hue family as MEG's
+                        # own button_bg, not a real brand value on its
+                        # own (a small softening step, not a re-source).
 foreground = '#1b2224'
 
 [colors.cursor]
-text = '#ffffff'
-cursor = '#62a945'
+text = '#f7f6f2'
+cursor = '#56ac35'
 
 [colors.normal]
-black   = '#ffffff'
+black   = '#f7f6f2'
 red     = '#a6453a'
-green   = '#62a945'
-yellow  = '#a68a3a'
-blue    = '#3a6ea6'
+green   = '#56ac35'  # was #62a945 -- webUI's real CURRENT martin-light
+                     # moss-solid (boosted 2026-07-31, "make the green
+                     # pop a bit more," sat/light re-tuned off the same
+                     # true MEG hue). Adhering to webUI's actual live
+                     # value, not the older martin.json one.
+yellow  = '#869838'  # was #a68a3a, green-shifted 40% toward #56ac35 --
+                     # Devin: "add as much tasteful green as you can in
+                     # Martin." red kept as-is (functional legibility).
+blue    = '#44847e'  # was #3a6ea6, green-shifted 35% toward #56ac35 --
+                     # reads teal-green now instead of a cold blue.
 magenta = '#4a7637'
 cyan    = '#3aa696'
 white   = '#535353'
 
 [colors.bright]
-black   = '#f9f9f9'
+black   = '#dcdad4'  # was #f9f9f9 (only ~6/255 off pure white bg -- same
+                     # near-invisible tmux inactive-tab-bg/folder-label-bg
+                     # bug bonepaper_light had). Widened to a real, clearly
+                     # separated step, same warm-off-white hue family as
+                     # the softened background above.
 red     = '#c25a4d'
 green   = '#4a7637'
-yellow  = '#c2a04d'
-blue    = '#4d84c2'
+yellow  = '#97a543'
+blue    = '#509291'
 magenta = '#5a8a44'
 cyan    = '#4dc2ae'
 white   = '#1b2224'

@@ -12,22 +12,27 @@
 [general]
 import = [
 	# DEVS THEMES
-	#"themes/solarized_osaka.toml"	# fav
+	#"themes/bonepaper_dark.toml"
+	#"themes/bonepaper_light.toml"
 	
-	"themes/azu.toml"
+	#"themes/martin_dark.toml"
+	#"themes/martin_light.toml"
+	
+	
+	#"themes/azu.toml"
 	#"themes/gnome_terminal.toml"	# NICE!
 
-	#"themes/bluish.toml"			# best blue
-	#"themes/selenized_light.toml"	# BEST LIGHT
+	
+	#"themes/solarized_osaka.toml"	# may become cobalt light
+	#"themes/cobalt_light.toml"		# was selenized_light, real values, combined family
+	#"themes/cobalt_dark.toml"		# was bluish, real values, combined family
+	
+	"themes/ubuntu.toml" 			# improve...
 
 	# OUR 4 CUSTOM FAMILIES (Slate/Bonepaper/Flexoki/Martin, real
 	# colour0=bg values, no tmux hacking needed)
 	#"themes/slate_light.toml"
 	#"themes/slate_dark.toml"
-	#"themes/bonepaper_light.toml"
-	#"themes/bonepaper_dark.toml"
-	#"themes/martin_light.toml"
-	#"themes/martin_dark.toml"
 
 	
 	#"themes/palenight.toml"		# dark
@@ -36,7 +41,6 @@ import = [
 	#"themes/cyber_punk_neon.toml"	# colored ↓
 	#"themes/inferno.toml" 			# red
 	#"themes/rose_pine.toml"		# purple
-	#"themes/ubuntu.toml" 			# improve...
 ]
 
 # working_directory = "C:/Users/devin/"  # Default: "None"

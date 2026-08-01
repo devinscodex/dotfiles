@@ -14,18 +14,28 @@ cursor = '#62a945'
 black   = '#1b2224'
 red     = '#a6635a'
 green   = '#62a945'
-yellow  = '#a69b5a'
-blue    = '#5a86a6'
-magenta = '#4a7637'
-cyan    = '#5aa69b'
+yellow  = '#8ea053'  # was #a69b5a, green-shifted 35% toward #62a945 --
+                     # Devin: "add as much tasteful green as you can in
+                     # Martin." red kept as-is (functional legibility).
+blue    = '#5d9284'  # was #5a86a6, green-shifted 35% toward #62a945.
+magenta = '#62a945'  # was #4a7637 (secondary dark green) -- near-black
+                     # text on a dark bg was too muddy for tmux's active
+                     # tab. Primary bright MEG green here instead, same
+                     # "near-black text glowing on bright accent" pop
+                     # bonepaper's manga fix used.
+cyan    = '#6fbfa0'  # was #5aa69b -- brightened/greened for "more martin
+                     # green accents," also drives the folder-label color
+                     # globally (tmux @pane_active_fg='colour6').
 white   = '#7e8180'
 
 [colors.bright]
-black   = '#24272a'
+black   = '#33383c'  # was #24272a (only ~9/255 off bg -- same near-
+                     # invisible tmux inactive-tab-bg bug bonepaper_dark
+                     # had). Real, clearly separated step.
 red     = '#c28075'
 green   = '#4a7637'
-yellow  = '#c2b675'
-blue    = '#75a1c2'
-magenta = '#5e9247'
-cyan    = '#75c2b6'
+yellow  = '#a0b164'
+blue    = '#6ea496'
+magenta = '#7cc25a'
+cyan    = '#8ad4c4'
 white   = '#cfcfcb'

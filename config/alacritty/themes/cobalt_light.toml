@@ -1,0 +1,37 @@
+# Cobalt Light -- Selenized Light's own real published values (Jan
+# Warchol, selenized_light.toml), renamed/repackaged as the light half
+# of the combined Cobalt family (see cobalt_dark.toml for the other
+# half, Bluish -- two different real themes, not one theme's two
+# modes). Verbatim from the source theme, no derived fill: Selenized's
+# author already built a full real 16-color scheme, unlike the 4
+# themes-custom-sourced families which only had bg/fg/accent to work
+# from. colour8/colour0 gap is already real (~38/255) -- no bonepaper/
+# martin-style near-invisible bug here out of the gate.
+
+[colors.primary]
+background = '#fbf3db'
+foreground = '#53676d'
+
+[colors.cursor]
+text = '#fbf3db'
+cursor = '#0072d4'
+
+[colors.normal]
+black   = '#fbf3db'
+red     = '#d2212d'
+green   = '#489100'
+yellow  = '#ad8900'
+blue    = '#0072d4'
+magenta = '#ca4898'
+cyan    = '#009c8f'
+white   = '#909995'
+
+[colors.bright]
+black   = '#d5cdb6'
+red     = '#cc1729'
+green   = '#428b00'
+yellow  = '#a78300'
+blue    = '#006dce'
+magenta = '#c44392'
+cyan    = '#00978a'
+white   = '#3a4d53'
