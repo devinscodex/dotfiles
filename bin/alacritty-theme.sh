@@ -6,12 +6,17 @@
 # currently loaded (no API for that), so nothing can auto-detect this
 # on its own -- running this script IS the sync point, by design.
 #
-# 2026-07-31: pulls each theme's real [colors.primary].background
-# straight from its own .toml file (via Python's tomllib) instead of a
-# hand-maintained lookup table -- works for ANY theme in the themes/
-# folder automatically, not just ones someone remembered to add an
-# entry for. See core/lessons/gotchas.md (cairn project, 2026-07-31)
-# for why primary.background (not colour0) is the real identity color.
+# SIMPLIFIED 2026-07-31 (Devin: "native, like how osaka is" -- not a
+# hand-picked substitute color): plain 'colour0' for every theme,
+# always. An earlier version of this script pulled each theme's real
+# [colors.primary].background via Python's tomllib -- technically
+# correct, but caused a whole confusing session (Ubuntu's real
+# maroon/#300a24 read as near-black at a glance, required literal hex +
+# a whole true-color/reattach saga to even render). 'colour0' is always
+# safe, never needs re-syncing, and is what Osaka was using from the
+# start (its own colour0 happens to equal its real teal, which is why
+# it never had any of these problems). Border/cwd accent stays a fixed
+# cyan regardless of theme -- see the pane_active_fg/bg block below.
 #
 # Usage: alacritty-theme.sh <name>     switch to <name> (partial match
 #                                      OK, e.g. "osaka" matches
@@ -56,20 +61,7 @@ elif [ "${#MATCHES[@]}" -gt 1 ]; then
 fi
 NAME="${MATCHES[0]}"
 
-# Real identity color: [colors.primary].background from the theme's own
-# file. Falls back to 'colour0' (always safe, never wrong, just maybe
-# not that theme's true brand color) if the theme doesn't define one --
-# some minimal theme files don't set colors.primary explicitly.
-ACTIVE_BG=$(python3 - "$THEMES_DIR/$NAME.toml" <<'PYEOF'
-import sys
-import tomllib
-
-with open(sys.argv[1], "rb") as f:
-    data = tomllib.load(f)
-bg = data.get("colors", {}).get("primary", {}).get("background")
-print(bg if bg else "colour0")
-PYEOF
-)
+ACTIVE_BG='colour0'
 
 python3 - "$ALACRITTY_TOML" "themes/$NAME.toml" <<'PYEOF'
 import re
