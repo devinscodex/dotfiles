@@ -73,7 +73,6 @@ fi
 
 
 # Bridge VeraCrypt Z: into WSL if already unlocked on Windows side
-# (Runestone "Mounting Things" — WSL2 bridge pattern, 2026-07-25)
 ~/.local/bin/mount-veracrypt-z.sh
 
 # Bridge network drive M: (media share) into WSL if already connected

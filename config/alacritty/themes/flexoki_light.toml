@@ -1,25 +1,19 @@
 # Flexoki Light -- real values from devs-themes/palettes/flexoki.json
 # (Steph Ango's published Flexoki, stephango.com/flexoki), blended with
-# Cobalt Light's real Selenized Light background 2026-08-01 (Devin:
-# flexoki_light "currently doesn't have a good contrast, and the
-# creaminess of selenized_light is perfect really" -- Cobalt retired as
-# its own family, its cream bg lives on here instead). red/yellow/
-# magenta below are derived fill. See Donatello's color-sync notes.
+# the retired Cobalt family's real Selenized Light background (its
+# cream bg lives on here). red/yellow/magenta below are derived fill.
 
 [colors.primary]
-background = '#fbf3db'  # was #fffcf0 -- Selenized Light's real cream
-                        # (Jan Warchol, verbatim from the retired Cobalt
-                        # Light / cobalt.json), swapped in whole per
-                        # Devin's explicit call.
+background = '#fbf3db'  # Selenized Light's real cream (Jan Warchol),
+                        # verbatim from the retired Cobalt Light /
+                        # cobalt.json.
 foreground = '#100f0f'
 
 [colors.cursor]
 text = '#fbf3db'
-cursor = '#24837b'  # was #205ea6 (blue) -- Flexoki's real teal
-                    # (Kepano's published cyan-600), matching webUI's
-                    # own accent swap from 2026-07-31 and Devin's
-                    # 2026-08-01 "better teal accents" ask. Flexoki's
-                    # real blue survives below in the blue slot.
+cursor = '#24837b'  # Flexoki's real teal (Kepano's published cyan-600),
+                    # matching webUI's own accent. Flexoki's real blue
+                    # survives below in the blue slot.
 
 [colors.normal]
 black   = '#fbf3db'
@@ -28,23 +22,20 @@ green   = '#5e8b43'
 yellow  = '#8b7943'
 blue    = '#205ea6'
 magenta = '#75438b'
-cyan    = '#24837b'  # was #43848b (muted derived-fill) -- real Kepano
-                     # cyan-600, Devin 2026-08-01: "better teal accents."
+cyan    = '#24837b'  # real Kepano cyan-600, not the muted derived-fill.
 white   = '#b7b5ac'
 
 [colors.bright]
-black   = '#d5cdb6'  # was #f2f0e5 (only ~11-12/255 off bg -- the
-                     # colour8-gap bug, never fixed on this theme).
-                     # Reused Selenized Light's own real bright.black
-                     # verbatim -- the new bg now matches Selenized's
-                     # exactly, so its proven ~37-38/255 gap carries over
+black   = '#d5cdb6'  # Reused Selenized Light's own real bright.black
+                     # verbatim -- the bg matches Selenized's exactly,
+                     # so its proven ~37-38/255 gap off bg carries over
                      # by construction, not a re-derivation.
 red     = '#a5715c'
 green   = '#78a55c'
 yellow  = '#a5935c'
 blue    = '#4385be'
 magenta = '#935cae'
-cyan    = '#3aa99f'  # was #5ca3ae -- real Kepano cyan-400 (the same
-                     # token flexoki_dark's bright.cyan now uses), a
-                     # brighter teal pop against the cream bg.
+cyan    = '#3aa99f'  # real Kepano cyan-400 (the same token
+                     # flexoki_dark's bright.cyan uses), a brighter
+                     # teal pop against the cream bg.
 white   = '#100f0f'

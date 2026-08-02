@@ -6,17 +6,14 @@
 # currently loaded (no API for that), so nothing can auto-detect this
 # on its own -- running this script IS the sync point, by design.
 #
-# SIMPLIFIED 2026-07-31 (Devin: "native, like how osaka is" -- not a
-# hand-picked substitute color): plain 'colour0' for every theme,
-# always. An earlier version of this script pulled each theme's real
-# [colors.primary].background via Python's tomllib -- technically
-# correct, but caused a whole confusing session (Ubuntu's real
-# maroon/#300a24 read as near-black at a glance, required literal hex +
-# a whole true-color/reattach saga to even render). 'colour0' is always
-# safe, never needs re-syncing, and is what Osaka was using from the
-# start (its own colour0 happens to equal its real teal, which is why
-# it never had any of these problems). Border/cwd accent stays a fixed
-# cyan regardless of theme -- see the pane_active_fg/bg block below.
+# Plain 'colour0' for every theme, always -- pulling each theme's real
+# [colors.primary].background via Python's tomllib is technically
+# correct but produces near-black/near-invisible active-tab colors for
+# themes whose real background reads dark at a glance (e.g. Ubuntu's
+# maroon/#300a24) without a true-color/reattach pass to render it
+# properly. 'colour0' is always safe and never needs re-syncing.
+# Border/cwd accent stays a fixed cyan regardless of theme -- see the
+# pane_active_fg/bg block below.
 #
 # Usage: alacritty-theme.sh <name>     switch to <name> (partial match
 #                                      OK, e.g. "osaka" matches
@@ -96,16 +93,13 @@ with open(path, "w", encoding="utf-8") as f:
     f.writelines(out)
 PYEOF
 
-# Real fix, 2026-07-31: set -g alone (server-wide default) turned out
-# not to be enough -- a brand-new session picked it up fine, but an
-# EXISTING session (cairn) kept rendering stale even after detach/
-# reattach and a full Alacritty restart. Setting it explicitly on
-# EVERY currently-running session (not just the global default) covers
-# any session that might have its own resolved state, and forcing a
-# full client redraw (refresh-client -S) covers any case where a style
-# change alone doesn't repaint an already-drawn screen. Devin's ask:
-# "can the script just handle all of it" -- this is that, no more
-# manual detach/reattach/restart dance required.
+# set -g alone (server-wide default) isn't enough -- a brand-new
+# session picks it up fine, but an EXISTING session keeps rendering
+# stale even after detach/reattach and a full Alacritty restart.
+# Setting it explicitly on EVERY currently-running session (not just
+# the global default) covers any session with its own resolved state,
+# and forcing a full client redraw (refresh-client -S) covers any case
+# where a style change alone doesn't repaint an already-drawn screen.
 if command -v tmux >/dev/null 2>&1 && tmux list-sessions >/dev/null 2>&1; then
     tmux set -g @window_active_bg "$ACTIVE_BG"
     tmux set -g @pane_active_bg "$ACTIVE_BG"

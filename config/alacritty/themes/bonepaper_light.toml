@@ -1,8 +1,7 @@
 # Bonepaper Light -- real values from devs-themes/palettes/
 # bonepaper.json (bone-paper, warm ivory, jade accent). external_link's
 # real purple (#5b3fa6) goes in magenta, the theme's own second real
-# identity color -- red/yellow/cyan below are derived fill. See
-# Donatello's color-sync notes for the convention.
+# identity color -- red/yellow/cyan below are derived fill.
 
 [colors.primary]
 background = '#b8a785'

@@ -1,20 +1,18 @@
-# Slate Dark -- real values from devs-themes/palettes/slate.json
-# ("Solarized dark basically, desaturated," house moss accent replacing
-# Solarized's original blue). Derived-fill convention as slate_light.toml.
-# 2026-08-01: bg/colour8 now Cobalt Dark's (Bluish's) own real blue-grey
-# -- Devin retired Cobalt as its own family but wanted its "as gray as
-# bluish, dark slate" character in here, not just blended toward it (a
-# first pass averaged it 50/50 with Solarized and Devin caught it as
-# still not gray enough -- this adopts Bluish's real #2c3640 outright).
+# Slate Dark -- real values from devs-themes/palettes/slate.json (a
+# desaturated Solarized dark base, house moss accent replacing
+# Solarized's original blue). Derived-fill convention as
+# slate_light.toml. bg/colour8 is the retired Cobalt Dark (Bluish)
+# family's own real blue-grey adopted outright (not blended toward it),
+# for genuinely gray character rather than a Solarized-tinted approximation.
 # Rest of the ANSI ramp (accents) untouched, this is a background-
 # character shift, not a re-hue.
 
 [colors.primary]
-background = '#2c3640'  # was #001a1d (pure Solarized Osaka near-black-
-                        # teal) -- Cobalt Dark's/Bluish's own real value,
-                        # verbatim. HSL ~18% saturation, genuinely gray,
-                        # comparable lightness to One Dark/Dracula so it
-                        # still reads as a real "dark" theme bg.
+background = '#2c3640'  # Cobalt Dark's/Bluish's own real value,
+                        # verbatim, not pure Solarized Osaka near-black-
+                        # teal (#001a1d). HSL ~18% saturation, genuinely
+                        # gray, comparable lightness to One Dark/Dracula
+                        # so it still reads as a real "dark" theme bg.
 foreground = '#839496'
 
 [colors.cursor]
@@ -32,10 +30,10 @@ cyan    = '#4aa39a'
 white   = '#657b83'
 
 [colors.bright]
-black   = '#414f5a'  # was #073642 (Solarized base02) -- next visible
-                     # step up from the new #2c3640 bg, same desaturated
-                     # blue-gray family (~21-26/255 gap, real
-                     # separation).
+black   = '#414f5a'  # next visible step up from bg #2c3640, same
+                     # desaturated blue-gray family (~21-26/255 gap,
+                     # real separation), not Solarized's original base02
+                     # (#073642).
 red     = '#c27a6a'
 green   = '#699d43'
 yellow  = '#c2b26a'

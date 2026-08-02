@@ -7,11 +7,10 @@
 # bg/fg/button/accent, not a full 16-slot terminal scheme.
 
 [colors.primary]
-background = '#f7f6f2'  # was pure #ffffff -- Devin: "soften the whites a
-                        # bit, not too much, just easier on the eyes."
-                        # Subtle warm off-white, same hue family as MEG's
-                        # own button_bg, not a real brand value on its
-                        # own (a small softening step, not a re-source).
+background = '#f7f6f2'  # subtle warm off-white, not pure #ffffff --
+                        # same hue family as MEG's own button_bg, not a
+                        # real brand value on its own (a small softening
+                        # step, not a re-source).
 foreground = '#1b2224'
 
 [colors.cursor]
@@ -21,26 +20,22 @@ cursor = '#56ac35'
 [colors.normal]
 black   = '#f7f6f2'
 red     = '#a6453a'
-green   = '#56ac35'  # was #62a945 -- webUI's real CURRENT martin-light
-                     # moss-solid (boosted 2026-07-31, "make the green
-                     # pop a bit more," sat/light re-tuned off the same
-                     # true MEG hue). Adhering to webUI's actual live
-                     # value, not the older martin.json one.
-yellow  = '#769e37'  # was #869838 (40% shift) -- pushed to ~60% toward
-                     # #56ac35, Devin 2026-08-01: "more accents of Martin
-                     # Green." red kept as-is (functional legibility).
-blue    = '#499068'  # was #44847e (35% shift) -- pushed to ~55% toward
-                     # #56ac35, Devin 2026-08-01: "more accents of Martin
-                     # Green." Reads clearly green-teal now, less blue.
+green   = '#56ac35'  # webUI's real CURRENT martin-light moss-solid
+                     # (sat/light re-tuned off the same true MEG hue as
+                     # martin.json's #62a945) -- adhering to webUI's
+                     # actual live value.
+yellow  = '#769e37'  # ~60% shifted toward #56ac35 for more Martin-green
+                     # presence; red kept as-is (functional legibility).
+blue    = '#499068'  # ~55% shifted toward #56ac35 for more Martin-green
+                     # presence -- reads clearly green-teal now, less blue.
 magenta = '#4a7637'
 cyan    = '#3aa696'
 white   = '#535353'
 
 [colors.bright]
-black   = '#c7c3b8'  # was #dcdad4 (2026-08-01 first pass, ~27-30/255 off
-                     # bg -- Devin still wanted more active/inactive
-                     # separation). Widened again, ~48-58/255 off bg
-                     # #f7f6f2 now, same warm off-white/tan hue family.
+black   = '#c7c3b8'  # ~48-58/255 off bg #f7f6f2 for real
+                     # active/inactive separation, same warm
+                     # off-white/tan hue family.
 red     = '#c25a4d'
 green   = '#4a7637'
 yellow  = '#97a543'

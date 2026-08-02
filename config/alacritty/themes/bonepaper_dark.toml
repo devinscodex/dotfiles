@@ -1,7 +1,7 @@
 # Bonepaper Dark -- real values from devs-themes/palettes/
 # bonepaper.json (night-rain, real numpy-sampled sage-mint glow).
 # external_link's real violet (#9d8cf0) goes in magenta. red/yellow/cyan
-# below are derived fill. See Donatello's color-sync notes.
+# below are derived fill.
 
 [colors.primary]
 background = '#030302'
@@ -17,25 +17,20 @@ red     = '#a35648'
 green   = '#b4e4bc'
 yellow  = '#a39348'
 blue    = '#9d8cf0'  # external_link's real violet, moved here
-magenta = '#b4e4bc'  # was #9d8cf0 (external_link violet) -- tmux's
+magenta = '#b4e4bc'  # real mint accent, not external_link violet -- tmux's
                      # window-status-current uses colour5 as the ACTIVE
-                     # tab bg; Devin asked for "more minty green and dark
-                     # manga contrast" there specifically, so the real
-                     # mint accent now drives it (near-black text glowing
-                     # on bright mint = the manga "one accent, rest
-                     # black-and-white linework" look), violet kept alive
-                     # in the blue slot above instead of dropped outright.
+                     # tab bg, and near-black text glowing on bright mint
+                     # gives the manga "one accent, rest black-and-white
+                     # linework" look; violet kept alive in the blue slot
+                     # above instead of dropped outright.
 cyan    = '#48a394'
 white   = '#7d7d78'
 
 [colors.bright]
-black   = '#2a3226'  # was #1c211a (2026-08-01 first pass, ~26-33/255 off
-                     # bg #030302 -- better than the original #07080a but
-                     # Devin still wanted more separation). Widened again,
-                     # same warm dark-green-black family (still clearly
-                     # darker than bonepaper_light's own tan bg family,
-                     # this is the DARK theme's step), ~36-47/255 off bg
-                     # now.
+black   = '#2a3226'  # ~36-47/255 off bg #030302 for real active/inactive
+                     # separation, same warm dark-green-black family
+                     # (still clearly darker than bonepaper_light's own
+                     # tan bg family -- this is the DARK theme's step).
 red     = '#c27968'
 green   = '#c8ecce'
 yellow  = '#c2b168'
