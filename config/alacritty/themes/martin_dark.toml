@@ -1,4 +1,4 @@
-# Martin (MEG brand) Dark -- real values from themes-custom/palettes/
+# Martin (MEG brand) Dark -- real values from devs-themes/palettes/
 # martin.json (martinenergygroup.com live palette). Same derived-fill
 # convention as martin_light.toml -- see that file's header.
 
@@ -14,10 +14,18 @@ cursor = '#62a945'
 black   = '#1b2224'
 red     = '#a6635a'
 green   = '#62a945'
-yellow  = '#8ea053'  # was #a69b5a, green-shifted 35% toward #62a945 --
-                     # Devin: "add as much tasteful green as you can in
-                     # Martin." red kept as-is (functional legibility).
-blue    = '#5d9284'  # was #5a86a6, green-shifted 35% toward #62a945.
+yellow  = '#81a34e'  # was #8ea053 (35% shift) -- pushed to ~55% toward
+                     # #62a945, Devin 2026-08-01: "more accents of Martin
+                     # Green." red kept as-is (functional legibility).
+blue    = '#9fd9c0'  # was #5d9284 -- real dircolors folder-contrast bug
+                     # (same class as bonepaper_light's fix): WSL renders
+                     # other-writable dirs (every /mnt/c folder) as
+                     # normal.blue text ON normal.green bg (`ow=34;42`).
+                     # #5d9284-on-#62a945 was two similarly-dark
+                     # mid-tones, unreadable. Lightened to a pale
+                     # mint-teal -- real contrast against the green fill
+                     # AND doubles as "more Martin Green" (reads green-
+                     # tinted, not a cold blue).
 magenta = '#62a945'  # was #4a7637 (secondary dark green) -- near-black
                      # text on a dark bg was too muddy for tmux's active
                      # tab. Primary bright MEG green here instead, same
@@ -29,9 +37,10 @@ cyan    = '#6fbfa0'  # was #5aa69b -- brightened/greened for "more martin
 white   = '#7e8180'
 
 [colors.bright]
-black   = '#33383c'  # was #24272a (only ~9/255 off bg -- same near-
-                     # invisible tmux inactive-tab-bg bug bonepaper_dark
-                     # had). Real, clearly separated step.
+black   = '#40484f'  # was #33383c (2026-08-01 first pass, ~22-24/255 off
+                     # bg -- Devin still wanted more active/inactive
+                     # separation). Widened again, ~37-43/255 off bg
+                     # #1b2224 now, same cool charcoal family.
 red     = '#c28075'
 green   = '#4a7637'
 yellow  = '#a0b164'

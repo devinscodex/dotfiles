@@ -1,4 +1,4 @@
-# Martin (MEG brand) Light -- real values from themes-custom/palettes/
+# Martin (MEG brand) Light -- real values from devs-themes/palettes/
 # martin.json, sourced from martinenergygroup.com's live Elementor
 # global palette (presentation/meg-theme.css). green/highlight are the
 # theme's own two real MEG greens (primary #62a945, secondary #4a7637);
@@ -26,21 +26,21 @@ green   = '#56ac35'  # was #62a945 -- webUI's real CURRENT martin-light
                      # pop a bit more," sat/light re-tuned off the same
                      # true MEG hue). Adhering to webUI's actual live
                      # value, not the older martin.json one.
-yellow  = '#869838'  # was #a68a3a, green-shifted 40% toward #56ac35 --
-                     # Devin: "add as much tasteful green as you can in
-                     # Martin." red kept as-is (functional legibility).
-blue    = '#44847e'  # was #3a6ea6, green-shifted 35% toward #56ac35 --
-                     # reads teal-green now instead of a cold blue.
+yellow  = '#769e37'  # was #869838 (40% shift) -- pushed to ~60% toward
+                     # #56ac35, Devin 2026-08-01: "more accents of Martin
+                     # Green." red kept as-is (functional legibility).
+blue    = '#499068'  # was #44847e (35% shift) -- pushed to ~55% toward
+                     # #56ac35, Devin 2026-08-01: "more accents of Martin
+                     # Green." Reads clearly green-teal now, less blue.
 magenta = '#4a7637'
 cyan    = '#3aa696'
 white   = '#535353'
 
 [colors.bright]
-black   = '#dcdad4'  # was #f9f9f9 (only ~6/255 off pure white bg -- same
-                     # near-invisible tmux inactive-tab-bg/folder-label-bg
-                     # bug bonepaper_light had). Widened to a real, clearly
-                     # separated step, same warm-off-white hue family as
-                     # the softened background above.
+black   = '#c7c3b8'  # was #dcdad4 (2026-08-01 first pass, ~27-30/255 off
+                     # bg -- Devin still wanted more active/inactive
+                     # separation). Widened again, ~48-58/255 off bg
+                     # #f7f6f2 now, same warm off-white/tan hue family.
 red     = '#c25a4d'
 green   = '#4a7637'
 yellow  = '#97a543'

@@ -1,4 +1,4 @@
-# Bonepaper Dark -- real values from themes-custom/palettes/
+# Bonepaper Dark -- real values from devs-themes/palettes/
 # bonepaper.json (night-rain, real numpy-sampled sage-mint glow).
 # external_link's real violet (#9d8cf0) goes in magenta. red/yellow/cyan
 # below are derived fill. See Donatello's color-sync notes.
@@ -29,14 +29,13 @@ cyan    = '#48a394'
 white   = '#7d7d78'
 
 [colors.bright]
-black   = '#1c211a'  # was #07080a (only 4-8/255 lighter than bg #030302 --
-                     # same real bug as bonepaper_light's colour8: tmux's
-                     # inactive-tab-bg barely differed from the base
-                     # background, active/inactive read as not distinct
-                     # enough. Reused Runestone's own bonepaper.css
-                     # --color-base-30 (#1c211a), a real already-established
-                     # "next visible step" tone from this theme's own ramp,
-                     # not a new invented value.
+black   = '#2a3226'  # was #1c211a (2026-08-01 first pass, ~26-33/255 off
+                     # bg #030302 -- better than the original #07080a but
+                     # Devin still wanted more separation). Widened again,
+                     # same warm dark-green-black family (still clearly
+                     # darker than bonepaper_light's own tan bg family,
+                     # this is the DARK theme's step), ~36-47/255 off bg
+                     # now.
 red     = '#c27968'
 green   = '#c8ecce'
 yellow  = '#c2b168'

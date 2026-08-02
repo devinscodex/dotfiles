@@ -1,4 +1,4 @@
-# Flexoki Dark -- real values from themes-custom/palettes/flexoki.json
+# Flexoki Dark -- real values from devs-themes/palettes/flexoki.json
 # (Steph Ango's published Flexoki, blue-400 accent). Derived-fill
 # convention as flexoki_light.toml.
 
@@ -17,15 +17,24 @@ green   = '#6ba34a'
 yellow  = '#a3924a'
 blue    = '#4385be'
 magenta = '#8a4aa3'
-cyan    = '#4a9aa3'
+cyan    = '#3aa99f'  # was #4a9aa3 (muted derived-fill) -- real value now,
+                     # Kepano's own published Flexoki cyan-400
+                     # (stephango.com/flexoki), same one webUI's dark
+                     # accent already uses. Devin 2026-08-01: "better
+                     # teal accents."
 white   = '#6f6e69'
 
 [colors.bright]
-black   = '#282726'
+black   = '#3a3835'  # was #282726 (only ~11-12/255 off bg #1c1b1a -- the
+                     # colour8-gap bug, never actually fixed on this
+                     # theme despite hitting bonepaper/martin the same
+                     # night). Widened to ~24-27/255 off bg, same warm
+                     # dark-neutral family.
 red     = '#c27a68'
 green   = '#8ac268'
 yellow  = '#c2b168'
 blue    = '#68a3d8'
 magenta = '#a968c2'
-cyan    = '#68b9c2'
+cyan    = '#5cc9bd'  # was #68b9c2 -- brighter real-teal step to match
+                     # the normal.cyan swap above.
 white   = '#e6e4d9'

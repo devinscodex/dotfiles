@@ -22,11 +22,11 @@ import = [
 	#"themes/azu.toml"
 	#"themes/gnome_terminal.toml"	# NICE!
 
-	
-	#"themes/solarized_osaka.toml"	# may become cobalt light
-	#"themes/cobalt_light.toml"		# was selenized_light, real values, combined family
-	#"themes/cobalt_dark.toml"		# was bluish, real values, combined family
-	
+	# Cobalt (Bluish + Selenized Light combo family) retired 2026-08-01 --
+	# its dark half's blue-grey character folded into slate_dark.toml,
+	# its light half's cream bg folded into flexoki_light.toml.
+	#"themes/solarized_osaka.toml"
+
 	"themes/ubuntu.toml" 			# improve...
 
 	# OUR 4 CUSTOM FAMILIES (Slate/Bonepaper/Flexoki/Martin, real
