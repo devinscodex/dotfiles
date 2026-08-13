@@ -29,14 +29,17 @@ ln -s "$PWD/config/alacritty" ~/.config/alacritty   # Linux/WSL path;
 ln -s "$PWD/bin/alacritty-theme.sh" ~/.local/bin/alacritty-theme.sh
 ```
 
-Spicetify (Windows-only, %appdata%\spicetify):
+Spicetify (Windows-only, %appdata%\spicetify) -- **copies, not
+symlinks**: spicetify.exe (Go binary) fails to read `config-xpui.ini`
+("file cannot be accessed by the system") and fails to find the
+`Themes\text` directory ("Theme text not found") through a WSL-created
+NTFS reparse point, confirmed live 2026-08-13 on both a file and a
+directory symlink. Re-copy after any edit to the tracked files:
 
 ```powershell
-Remove-Item "$env:APPDATA\spicetify\config-xpui.ini" -Force -ErrorAction SilentlyContinue
-New-Item -ItemType SymbolicLink -Path "$env:APPDATA\spicetify\config-xpui.ini" -Target "$PWD\config\spicetify\config-xpui.ini" -Force
-
-Remove-Item "$env:APPDATA\spicetify\Themes\text" -Recurse -Force -ErrorAction SilentlyContinue
-New-Item -ItemType SymbolicLink -Path "$env:APPDATA\spicetify\Themes\text" -Target "$PWD\config\spicetify\Themes\text" -Force
+Copy-Item "$PWD\config\spicetify\config-xpui.ini" "$env:APPDATA\spicetify\config-xpui.ini" -Force
+Copy-Item "$PWD\config\spicetify\Themes\text\color.ini" "$env:APPDATA\spicetify\Themes\text\color.ini" -Force
+Copy-Item "$PWD\config\spicetify\Themes\text\user.css" "$env:APPDATA\spicetify\Themes\text\user.css" -Force
 
 spicetify apply
 ```
