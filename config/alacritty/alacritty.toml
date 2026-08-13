@@ -35,8 +35,9 @@ import = [
 	#"themes/slate_light.toml"
 	#"themes/slate_dark.toml"
 
-	"themes/cypress_dark.toml"		# Bonepaper x Everforest blend
+	#"themes/cypress_dark.toml"		# Bonepaper x Everforest blend
 	#"themes/cypress_light.toml"
+	"themes/cypress_midnight.toml"	# Cypress Dark, cooler near-black bg variant
 
 	
 	#"themes/palenight.toml"		# dark

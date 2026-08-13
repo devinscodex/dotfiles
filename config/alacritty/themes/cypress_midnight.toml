@@ -1,0 +1,49 @@
+# Cypress Midnight -- the pre-final Cypress Dark bg/button_bg, kept alive
+# as devs-themes/palettes/cypress-archive.json rather than lost when the
+# warmer brown bg (#17130e) was promoted to be Cypress Dark itself
+# 2026-08-13. Same real sourced values (fg/select_bg/external_link/
+# muted_fg) as cypress_dark.toml -- only bg/button_bg differ between
+# cypress.json and cypress-archive.json's dark blocks. Same accent
+# tuning as cypress_dark.toml (softened green/magenta, blue reassigned
+# from external_link violet to a distinct Cypress green) for parity --
+# see that file's own header for the full rationale.
+
+[colors.primary]
+background = '#0e1011'
+foreground = '#dad1bd'
+
+[colors.cursor]
+text = '#0e1011'
+cursor = '#82a960'  # matches softened normal.green below
+
+[colors.normal]
+black   = '#0e1011'
+red     = '#b8624f'  # derived fill, warm terracotta-coral -- identical
+                     # to cypress_dark.toml's (not bg-derived).
+green   = '#82a960'  # softened from the real accent #aac98f, same as
+                     # cypress_dark.toml.
+yellow  = '#b09a4a'  # derived fill, mustard-gold -- identical to
+                     # cypress_dark.toml's.
+blue    = '#465d32'  # reassigned Cypress-green, same as cypress_dark.toml
+                     # (kept distinct from normal.green -- GNU dircolors'
+                     # ow=34;42 would go illegible if they matched).
+magenta = '#82a960'  # real accent, softened -- same as cypress_dark.toml.
+cyan    = '#4f9d88'  # derived fill, jade-teal -- identical to
+                     # cypress_dark.toml's.
+white   = '#828b83'  # real muted_fg value, used directly.
+
+[colors.bright]
+black   = '#2e3a3f'  # recomputed for THIS bg/button_bg pair -- new
+                     # button_bg (#1e2528) is only ~16-23/255 off bg
+                     # (#0e1011), same borderline colour8-gap class.
+                     # Widened by doubling bg->button_bg's own offset
+                     # (real math: bg + 2*(button_bg-bg) = #2e3a3f), same
+                     # cool blue-grey-olive family as button_bg itself.
+red     = '#d68a76'
+green   = '#9dc379'  # softened, identical to cypress_dark.toml's.
+yellow  = '#cdb96c'
+blue    = '#60863c'  # reassigned Cypress-green, identical to
+                     # cypress_dark.toml's.
+magenta = '#9dc379'  # identical to bright.green.
+cyan    = '#71bfa8'
+white   = '#dad1bd'  # real fg value.
