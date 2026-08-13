@@ -47,18 +47,21 @@ alias grep='grep --color=auto'
 alias diff='diff --color=auto'
 alias update='sudo apt update && sudo apt full-upgrade -y'
 
-# NALA over apt
-apt() {
-  command nala "$@"
-}
-sudo() {
-  if [ "$1" = "apt" ]; then
-    shift
-    command sudo nala "$@"
-  else
-    command sudo "$@"
-  fi
-}
+# NALA over apt (only once nala is actually installed -- otherwise this
+# blocks the very command that would install it)
+if command -v nala >/dev/null 2>&1; then
+  apt() {
+    command nala "$@"
+  }
+  sudo() {
+    if [ "$1" = "apt" ]; then
+      shift
+      command sudo nala "$@"
+    else
+      command sudo "$@"
+    fi
+  }
+fi
 
 
 # Prompt (full Kali-style box)
