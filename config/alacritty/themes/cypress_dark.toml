@@ -1,24 +1,29 @@
 # Cypress Dark -- real values from devs-themes/palettes/cypress.json
 # (Bonepaper x Everforest blend, already live in Beacon + Fossil Portal).
-# bg/fg/select_bg(=green)/external_link/muted_fg(=white) are real sourced
-# values. select_bg here (#aac98f) is itself already very close to
-# Everforest's own published green (a7c080) -- direct confirmation this
-# blend leans Everforest on its dark accent. Same structural move as
+# bg/button_bg swapped 2026-08-13 with the pre-final archive values
+# (devs-themes/palettes/cypress-archive.json) -- Devin preferred the
+# cooler near-black (#0e1011) over the warmer dark-brown bg (#17130e)
+# once seen live. fg/select_bg(=green)/external_link/muted_fg(=white)
+# are unaffected by the swap (identical in both cypress.json and
+# cypress-archive.json's dark blocks) -- real sourced values. select_bg
+# here (#aac98f) is itself already very close to Everforest's own
+# published green (a7c080) -- direct confirmation this blend leans
+# Everforest on its dark accent. Same structural move as
 # bonepaper_dark.toml (its nearest real relative): green and magenta
 # reuse the identical bright accent for tmux's active-tab "glow on
 # accent" pop, and the real external_link violet is kept alive in the
 # blue slot rather than dropped. red/yellow/cyan below are derived fill.
 
 [colors.primary]
-background = '#17130e'
+background = '#0e1011'
 foreground = '#dad1bd'
 
 [colors.cursor]
-text = '#17130e'
+text = '#0e1011'
 cursor = '#aac98f'
 
 [colors.normal]
-black   = '#17130e'
+black   = '#0e1011'
 red     = '#b8624f'  # derived fill, warm terracotta-coral -- same family
                      # as bonepaper_dark's red (#a35648), pushed slightly
                      # toward Everforest's coral-red character.
@@ -45,12 +50,14 @@ white   = '#828b83'  # real muted_fg value, used directly -- a genuine
                      # lean in this family's real sourced values.
 
 [colors.bright]
-black   = '#3a352c'  # bg's own button_bg (#28251f) was only ~17-18/255
-                     # off bg -- borderline under the recurring colour8-
-                     # gap threshold (bonepaper_dark hit this exact class
-                     # of bug and needed TWO widening passes). Widened
-                     # straight to a real ~30-35/255 gap along the same
-                     # warm dark-olive-brown family.
+black   = '#2e3a3f'  # recomputed after the bg swap above -- new button_bg
+                     # (#1e2528) is only ~16-23/255 off the new bg
+                     # (#0e1011), same borderline colour8-gap class
+                     # bonepaper_dark and the pre-swap value here both
+                     # hit. Widened by doubling bg->button_bg's own
+                     # offset (real math, not eyeballed:
+                     # bg + 2*(button_bg-bg) = #2e3a3f), same cool
+                     # blue-grey-olive family as button_bg itself.
 red     = '#d68a76'
 green   = '#c3e0a8'  # lightened accent green -- pairs with bright.magenta
                      # below, same reuse pattern as the normal row.
