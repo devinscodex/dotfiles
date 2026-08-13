@@ -63,11 +63,14 @@ opacity = 0.95  # Default: 1.0
 # Padding
 padding = { x = 10, y = 10 }  # Default: x = 0, y = 0
 
-# Window title
+# Window title (fallback, shown until the shell sets its own via OSC 0 --
+# see config/bash/bashrc's PROMPT_COMMAND)
 title = "Alacritty - Terminal"  # Default: "Alacritty"
 
-# Dynamic title
-dynamic_title = false  # Default: true
+# Dynamic title -- lets the shell set user@host:path per window/tab, so
+# multiple sessions (e.g. local vs an SSH'd-into remote box) are
+# distinguishable in the taskbar instead of all reading "Alacritty - Terminal"
+dynamic_title = true  # Default: true
 
 
 #############

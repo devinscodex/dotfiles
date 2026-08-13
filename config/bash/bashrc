@@ -30,6 +30,16 @@ export HISTSIZE=100000
 export HISTFILESIZE=10000000
 shopt -s histappend
 
+# Dynamic window/taskbar title -- user@host:path, so multiple Alacritty
+# windows (e.g. local vs an SSH'd-into remote box) are distinguishable
+# instead of all showing the static "Alacritty - Terminal" default.
+# Requires dynamic_title = true in alacritty.toml.
+case "$TERM" in
+  xterm*|rxvt*|alacritty*)
+    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/#$HOME/~}\007"'
+    ;;
+esac
+
 # useful shopt
 shopt -s autocd cdspell cmdhist dotglob expand_aliases checkwinsize
 bind 'set completion-ignore-case on'
