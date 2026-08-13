@@ -1,0 +1,60 @@
+# Cypress Light -- real values from devs-themes/palettes/cypress.json
+# (Bonepaper x Everforest blend, already live in Beacon + Fossil Portal).
+# bg/fg/select_bg(=green)/external_link(=magenta)/muted_fg(=white) are
+# real sourced values, used directly below. red/yellow/blue/cyan are
+# derived fill, hand-picked to read as Bonepaper's nearest real relative
+# (same warm khaki-tan bg family, nearly identical bg hex to
+# bonepaper_light's own #b8a785) with a slightly cooler teal/jade lean
+# borrowed from Everforest's aqua-forward character.
+
+[colors.primary]
+background = '#bcab8a'
+foreground = '#1d1812'
+
+[colors.cursor]
+text = '#bcab8a'
+cursor = '#34752a'
+
+[colors.normal]
+black   = '#bcab8a'
+red     = '#954936'  # derived fill, warm terracotta -- slightly more
+                     # red/less brown than bonepaper_light's own red
+                     # (#8b5843), nodding to Everforest's coral-red
+                     # without going pastel/pink.
+green   = '#34752a'  # real select_bg/highlight_bg, the given house
+                     # accent -- Everforest's own "a7c080" family darkened
+                     # for light-bg contrast.
+yellow  = '#8c7238'  # derived fill, mustard-olive -- same family as
+                     # bonepaper's #8b7643/flexoki's #8b7943 siblings.
+blue    = '#8fbfc9'  # derived fill, dusty teal-blue. Deliberately lighter
+                     # than a plain mid-blue for the same dircolors
+                     # folder-contrast reason bonepaper_light/slate_light/
+                     # martin_light all fixed (WSL renders other-writable
+                     # dirs as normal.blue-on-normal.green, `ow=34;42`,
+                     # every /mnt/c folder); teal-leaning hue also nods to
+                     # Everforest's blue-green aqua character rather than
+                     # bonepaper's plain sky-blue.
+magenta = '#7949ab'  # real external_link value, the theme's own second
+                     # real identity color -- same convention as
+                     # bonepaper_light's magenta = its own external_link
+                     # purple.
+cyan    = '#3d8570'  # derived fill, deep jade-teal -- nearly the same
+                     # family as bonepaper_light's own cyan (#43856b),
+                     # kept close since Everforest's aqua and bonepaper's
+                     # jade already overlap in character.
+white   = '#554d3e'  # real muted_fg value, used directly.
+
+[colors.bright]
+black   = '#8b7b5c'  # bg's own button_bg (#ae9c7b) was only ~14-15/255
+                     # off bg -- too close per the recurring colour8-gap
+                     # bug (bonepaper/slate/martin all hit this same
+                     # class of bug on first pass). Widened along the
+                     # same warm-tan hue to a real ~46-49/255 gap instead
+                     # of using button_bg verbatim.
+red     = '#b56b52'
+green   = '#4c9a3f'
+yellow  = '#ac9058'
+blue    = '#a8d4dc'
+magenta = '#9a6fc4'
+cyan    = '#5aab90'
+white   = '#1d1812'  # real fg value.

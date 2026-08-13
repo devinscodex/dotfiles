@@ -14,11 +14,12 @@ import = [
 	# DEVS THEMES
 	#"themes/bonepaper_dark.toml"
 	#"themes/bonepaper_light.toml"
-	
+
+
 	#"themes/martin_dark.toml"
 	#"themes/martin_light.toml"
-	
-	
+
+
 	#"themes/azu.toml"
 	#"themes/gnome_terminal.toml"	# NICE!
 
@@ -27,12 +28,15 @@ import = [
 	# its light half's cream bg folded into flexoki_light.toml.
 	#"themes/solarized_osaka.toml"
 
-	"themes/ubuntu.toml" 			# improve...
+	#"themes/ubuntu.toml" 			# improve...
 
-	# OUR 4 CUSTOM FAMILIES (Slate/Bonepaper/Flexoki/Martin, real
+	# OUR 5 CUSTOM FAMILIES (Slate/Bonepaper/Flexoki/Martin/Cypress, real
 	# colour0=bg values, no tmux hacking needed)
 	#"themes/slate_light.toml"
 	#"themes/slate_dark.toml"
+
+	"themes/cypress_dark.toml"		# Bonepaper x Everforest blend
+	#"themes/cypress_light.toml"
 
 	
 	#"themes/palenight.toml"		# dark
@@ -58,7 +62,7 @@ args = ["-NoLogo"]
 [window]
 
 # Opacity
-opacity = 0.95  # Default: 1.0
+opacity = 1.00  # Default: 1.0
 
 # Padding
 padding = { x = 10, y = 10 }  # Default: x = 0, y = 0

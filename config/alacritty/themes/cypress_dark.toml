@@ -1,0 +1,63 @@
+# Cypress Dark -- real values from devs-themes/palettes/cypress.json
+# (Bonepaper x Everforest blend, already live in Beacon + Fossil Portal).
+# bg/fg/select_bg(=green)/external_link/muted_fg(=white) are real sourced
+# values. select_bg here (#aac98f) is itself already very close to
+# Everforest's own published green (a7c080) -- direct confirmation this
+# blend leans Everforest on its dark accent. Same structural move as
+# bonepaper_dark.toml (its nearest real relative): green and magenta
+# reuse the identical bright accent for tmux's active-tab "glow on
+# accent" pop, and the real external_link violet is kept alive in the
+# blue slot rather than dropped. red/yellow/cyan below are derived fill.
+
+[colors.primary]
+background = '#17130e'
+foreground = '#dad1bd'
+
+[colors.cursor]
+text = '#17130e'
+cursor = '#aac98f'
+
+[colors.normal]
+black   = '#17130e'
+red     = '#b8624f'  # derived fill, warm terracotta-coral -- same family
+                     # as bonepaper_dark's red (#a35648), pushed slightly
+                     # toward Everforest's coral-red character.
+green   = '#aac98f'  # real select_bg/highlight_bg, the given house
+                     # accent -- reads as genuine Everforest sage-green.
+yellow  = '#b09a4a'  # derived fill, mustard-gold -- same family as
+                     # bonepaper_dark's yellow (#a39348).
+blue    = '#c294ca'  # real external_link violet, moved here -- same
+                     # move bonepaper_dark made with its own violet
+                     # (#9d8cf0 -> blue), keeping it alive in a slot other
+                     # than magenta once magenta gets reassigned below.
+magenta = '#aac98f'  # real accent green, reused verbatim (not the
+                     # violet) -- tmux's window-status-current uses
+                     # colour5 as the ACTIVE tab bg, and near-black text
+                     # on the bright sage accent gives the same "text
+                     # glowing on accent" pop bonepaper_dark and
+                     # martin_dark both established; violet stays alive
+                     # in blue above instead of being dropped.
+cyan    = '#4f9d88'  # derived fill, jade-teal -- close cousin of
+                     # bonepaper_dark's cyan (#48a394), leaning slightly
+                     # more Everforest-aqua.
+white   = '#828b83'  # real muted_fg value, used directly -- a genuine
+                     # sage-gray, another confirmation of the Everforest
+                     # lean in this family's real sourced values.
+
+[colors.bright]
+black   = '#3a352c'  # bg's own button_bg (#28251f) was only ~17-18/255
+                     # off bg -- borderline under the recurring colour8-
+                     # gap threshold (bonepaper_dark hit this exact class
+                     # of bug and needed TWO widening passes). Widened
+                     # straight to a real ~30-35/255 gap along the same
+                     # warm dark-olive-brown family.
+red     = '#d68a76'
+green   = '#c3e0a8'  # lightened accent green -- pairs with bright.magenta
+                     # below, same reuse pattern as the normal row.
+yellow  = '#cdb96c'
+blue    = '#d6b0da'  # lightened external_link violet, paired with
+                     # normal.blue's move above.
+magenta = '#c3e0a8'  # identical to bright.green, same reuse pattern
+                     # bonepaper_dark's own bright row uses.
+cyan    = '#71bfa8'
+white   = '#dad1bd'  # real fg value.
