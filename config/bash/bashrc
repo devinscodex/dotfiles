@@ -73,10 +73,10 @@ fi
 
 
 # Bridge VeraCrypt Z: into WSL if already unlocked on Windows side
-~/.local/bin/mount-veracrypt-z.sh
+[ -x ~/.local/bin/mount-veracrypt-z.sh ] && ~/.local/bin/mount-veracrypt-z.sh
 
 # Bridge network drive M: (media share) into WSL if already connected
-~/.local/bin/mount-media-m.sh
+[ -x ~/.local/bin/mount-media-m.sh ] && ~/.local/bin/mount-media-m.sh
 
 # Bridge network drive T: (fileserver, incl. bethel folder) into WSL if already connected
-~/.local/bin/mount-fileserver-t.sh
+[ -x ~/.local/bin/mount-fileserver-t.sh ] && ~/.local/bin/mount-fileserver-t.sh
